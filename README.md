@@ -1,8 +1,8 @@
-# Assignment7_NaySanHtut
+# Assignment7&8_NaySanHtut
 
 # Electric and Magnetic Field Classes
 
-Two C++ classes, `Electric_Field` and `Magnetic_Field`, each storing a 3D vector in a dynamically allocated array of 3 doubles. Both provide constructors, getters/setters, and `calculateMagnitude()`. The electric class adds `innerProduct()`, and the magnetic class adds `calculateUnitVector()`.
+A base class `Field` stores a 3D vector in a dynamically allocated array of 3 doubles. `Electric_Field` and `Magnetic_Field` inherit from it. The electric class calculates a field with Gauss' law and the magnetic class with Ampere's law. Both overload `+` and `<<`.
 
 ## Files
 
@@ -18,29 +18,23 @@ g++ -std=c++11 -o main main.cpp
 ## Output
 
 ```
-===== Electric Fields =====
-E_default    = (0, 0, 0)
-  Magnitude   : 0
-  Inner product (E.E): 0
+=== Components ===
+Electric field: x = 0, y = 100000, z = 1000  (|F| = 100005)
+Magnetic field: x = 0.002, y = 0, z = 0.0005  (|F| = 0.00206155)
 
-E_components = (100000, 10.9, 170)
-  Magnitude   : 100000
-  Inner product (E.E): 1e+10
+=== Gauss' Law ===
+Q = 2e-06 C, r = 0.5 m
+E = 71900.4 N/C
 
-E_setter     = (3, 4, 12)
-  Magnitude   : 13
-  Inner product (E.E): 169
+=== Ampere's Law ===
+I = 10 A, r = 0.05 m
+B = 4e-05 T
 
-===== Magnetic Fields =====
-B_default    = (0, 0, 0)
-  Magnitude   : 0
-  Unit vector : (0, 0, 0)
-
-B_components = (0.002, 0.0005, 0.001)
-  Magnitude   : 0.00229129
-  Unit vector : (0.872872, 0.218218, 0.436436)
-
-B_setter     = (0, 3, 4)
-  Magnitude   : 5
-  Unit vector : (0, 0.6, 0.8)
+=== Operator Overloads ===
+e2 = (1, 2, 3)
+e3 = (10, 20, 30)
+e1 = e2 + e3 = (11, 22, 33)
+b2 = (0.1, 0.2, 0.3)
+b3 = (0.5, 0.4, 0.3)
+b1 = b2 + b3 = (0.6, 0.6, 0.6)
 ```
